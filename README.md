@@ -24,7 +24,8 @@ Linux (Ubuntu):
 
 ## Notes
 
-- The example code is a simple left wall following algorithm
-- Depending on your OS, you may also need to [download Python](https://www.python.org/downloads/)
+- You may need to download and install [Python](https://www.python.org/downloads/)
+- Spaces in file paths are not allowed, you may need to change the default Python install path
+- Communication with the simulator is done via stdin/stdout, use stderr for logging
 - Descriptions of all available API methods can be found at [mackorone/mms#mouse-api](https://github.com/mackorone/mms#mouse-api)
-- Communication with the simulator is done via stdin/stdout, use stderr to print output
+- The example code is a simple left wall following algorithm
