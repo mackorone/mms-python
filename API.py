@@ -28,8 +28,8 @@ def wallRight():
 def wallLeft():
     return command(args=["wallLeft"], return_type=bool)
 
-def moveForward():
-    response = command(args=["moveForward"], return_type=str)
+def moveForward(distance=1):
+    response = command(args=["moveForward", distance], return_type=str)
     if response == "crash":
         raise MouseCrashedError()
 
