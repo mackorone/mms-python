@@ -28,8 +28,13 @@ def wallRight():
 def wallLeft():
     return command(args=["wallLeft"], return_type=bool)
 
-def moveForward(distance=1):
-    response = command(args=["moveForward", distance], return_type=str)
+def moveForward(distance=None):
+    args = ["moveForward"]
+    # Don't append distance argument unless explicitly specified, for
+    # backwards compatibility with older versions of the simulator
+    if distance is not None:
+        args.append(distance)
+    response = command(args=args, return_type=str)
     if response == "crash":
         raise MouseCrashedError()
 
