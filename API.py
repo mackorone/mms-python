@@ -38,11 +38,28 @@ def moveForward(distance=None):
     if response == "crash":
         raise MouseCrashedError()
 
+def moveForwardHalf():
+    response = command(args=["moveForwardHalf"], return_type=str)
+    if response == "crash":
+        raise MouseCrashedError()
+
 def turnRight():
     command(args=["turnRight"], return_type=str)
 
 def turnLeft():
     command(args=["turnLeft"], return_type=str)
+
+def turnRight90():
+    turnRight()
+
+def turnLeft90():
+    turnLeft()
+
+def turnRight45():
+    command(args=["turnRight45"], return_type=str)
+
+def turnLeft45():
+    command(args=["turnLeft45"], return_type=str)
 
 def setWall(x, y, direction):
     command(args=["setWall", x, y, direction])
