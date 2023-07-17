@@ -19,14 +19,35 @@ def mazeWidth():
 def mazeHeight():
     return command(args=["mazeHeight"], return_type=int)
 
-def wallFront():
-    return command(args=["wallFront"], return_type=bool)
+def checkWall(wallCommand, half_steps_away=None):
+    args = [wallCommand]
+    if half_steps_away is not None:
+        args.append(half_steps_away)
+    return command(args, return_type=bool)
 
-def wallRight():
-    return command(args=["wallRight"], return_type=bool)
+def wallFront(half_steps_away=None):
+    return checkWall("wallFront", half_steps_away)
 
-def wallLeft():
-    return command(args=["wallLeft"], return_type=bool)
+def wallBack(half_steps_away=None):
+    return checkWall("wallBack", half_steps_away)
+
+def wallLeft(half_steps_away=None):
+    return checkWall("wallLeft", half_steps_away)
+
+def wallRight(half_steps_away=None):
+    return checkWall("wallRight", half_steps_away)
+
+def wallFrontLeft(half_steps_away=None):
+    return checkWall("wallFrontLeft", half_steps_away)
+
+def wallFrontRight(half_steps_away=None):
+    return checkWall("wallFrontRight", half_steps_away)
+
+def wallBackLeft(half_steps_away=None):
+    return checkWall("wallBackLeft", half_steps_away)
+
+def wallBackRight(half_steps_away=None):
+    return checkWall("wallBackRight", half_steps_away)
 
 def moveForward(distance=None):
     args = ["moveForward"]
@@ -38,8 +59,11 @@ def moveForward(distance=None):
     if response == "crash":
         raise MouseCrashedError()
 
-def moveForwardHalf():
-    response = command(args=["moveForwardHalf"], return_type=str)
+def moveForwardHalf(num_half_steps=None):
+    args = ["moveForwardHalf"]
+    if num_half_steps is not None:
+        args.append(num_half_steps)
+    response = command(args=args, return_type=str)
     if response == "crash":
         raise MouseCrashedError()
 
